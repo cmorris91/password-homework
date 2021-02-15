@@ -7,8 +7,6 @@ var userChoiceArray = [];
 var finalPassword = [];
 
 
-// prompts for user to choose their password length
-
 var passwordLength = parseInt(prompt("How long do you want your password to be?"));
 if(passwordLength < 7) {
   alert("must be at least 8 characters");
@@ -20,7 +18,7 @@ else {
     console.log(passwordLength);
 };
 
-// functions to get the user's choices for their password parameters
+
 function getUserChoices() {         
 var lowerCaseChoice = confirm("Do you want lowercase characters?"); 
     if(lowerCaseChoice) {
@@ -71,7 +69,7 @@ function generatePassword() {
 console.log(finalPassword);
 // // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();~
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
