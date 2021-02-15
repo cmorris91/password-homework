@@ -7,6 +7,7 @@ var userChoiceArray = [];
 var finalPassword = [];
 
 
+// prompts for user to choose their password length
 
 var passwordLength = parseInt(prompt("How long do you want your password to be?"));
 if(passwordLength < 7) {
@@ -19,6 +20,7 @@ else {
     console.log(passwordLength);
 };
 
+// functions to get the user's choices for their password parameters
 function getUserChoices() {         
 var lowerCaseChoice = confirm("Do you want lowercase characters?"); 
     if(lowerCaseChoice) {
@@ -50,25 +52,33 @@ getUserChoices();
 
 console.log(userChoiceArray);
 
-
-for(var i=0; i < passwordLength.length; i++) {
-userChoiceArray[Math.floor(Math.random() * userChoiceArray.length)];
- 
+// takes array that has all the possiblities based on 
+// user's choices and loops through it to choose random characrters
+// pushes that into array with the amount of characters that the user wanted their password to be
+  for(var i=0; i < passwordLength; i++) {
+finalPassword.push(userChoiceArray[Math.floor(Math.random() * userChoiceArray.length)]);
 };
+  
+console.log(finalPassword);
 
-
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+// function turns final password array into one string
+function generatePassword() {
+  
+  return finalPassword.join("");
+  
 }
+
+console.log(finalPassword);
+// // Write password to the #password input
+function writePassword() {
+  var password = generatePassword();~
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+
+console.log(password)
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
 
